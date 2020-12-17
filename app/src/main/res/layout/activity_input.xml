@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".input">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122dp"
+        >
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+
+        <EditText
+            android:id="@+id/Test"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/Test2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test2"
+            android:inputType="number" />
+
+        <TextView
+            android:id="@+id/test_result"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:text="test_result" />
+
+        <EditText
+            android:id="@+id/editTextNumber4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test4"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextNumber5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test5"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextNumber6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test6"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextNumber7"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test7"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editTextNumber8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Test8"
+            android:inputType="number" />
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+    </LinearLayout>
+
+</RelativeLayout>
