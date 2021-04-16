@@ -65,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
 
                         //case R.id.nav_home: Intent intent = new Intent(MainActivity.this, home.class);
                         //startActivity(intent);
-                        case R.id.nav_einstellungen: Intent intent2 = new Intent(MainActivity.this, einstellungen.class);
+                        /*case R.id.nav_einstellungen: Intent intent2 = new Intent(MainActivity.this, activity_settings.class);
                                                     startActivity(intent2);
-                                                    break;
+                                                    break;*/
                         case R.id.nav_profil: Intent intent3 = new Intent(MainActivity.this, profil.class);
                                                     startActivity(intent3);
                                                     break;

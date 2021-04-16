@@ -5,8 +5,6 @@ import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
-import android.media.AudioManager;
-import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
@@ -26,9 +24,12 @@ public class barcode extends AppCompatActivity {
     private SurfaceView surfaceView;
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
-    private ToneGenerator toneGen1;
     private TextView barcodeText;
     private String barcodeData;
+    private String[][] testarray = {{"9006900014858","7311250079993"},
+                                    {"Der Grüne","Zyn Deep Freeze"}};
+    private String test1 = "DerGrüneKracktusescalationesgetränkerus";
+    private String test2 = "LindtSchokoBrownieTraumRiegelSnackeru";
 
 
 
@@ -37,7 +38,6 @@ public class barcode extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.menu_barcode);
         setContentView(R.layout.activity_barcode);
-        toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
         surfaceView = findViewById(R.id.surface_view);
         barcodeText = findViewById(R.id.barcode_text);
         initialiseDetectorsAndSources();
@@ -89,7 +89,7 @@ public class barcode extends AppCompatActivity {
         barcodeDetector.setProcessor(new Detector.Processor<Barcode>() {
             @Override
             public void release() {
-                // Toast.makeText(getApplicationContext(), "To prevent memory leaks barcode scanner has been stopped", Toast.LENGTH_SHORT).show();
+
             }
 
             @Override
@@ -106,13 +106,30 @@ public class barcode extends AppCompatActivity {
                             if (barcodes.valueAt(0).email != null) {
                                 barcodeText.removeCallbacks(null);
                                 barcodeData = barcodes.valueAt(0).email.address;
-                                barcodeText.setText(barcodeData);
-                                toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
-                            } else {
+                                for(int i = 0; i < testarray.length; i++) {
+
+                                        if(barcodeData.equals(testarray[0][0])){
+                                            barcodeText.setText(testarray[0][1]);
+                                        }
+                                        else{
+                                            barcodeText.setText(barcodeData);
+                                        }
+                                }
+
+                            }
+                            else {
 
                                 barcodeData = barcodes.valueAt(0).displayValue;
-                                barcodeText.setText(barcodeData);
-                                toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP, 150);
+
+                                    for(int i = 0; i < testarray.length; i++) {
+
+                                    if(barcodeData.equals(testarray[0][0])){
+                                        barcodeText.setText(testarray[0][1]);
+                                    }
+                                    else{
+                                        barcodeText.setText(barcodeData);
+                                    }
+                                }
 
                             }
                         }
