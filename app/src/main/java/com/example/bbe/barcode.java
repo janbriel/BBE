@@ -17,6 +17,7 @@ import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 import java.io.IOException;
+import java.text.BreakIterator;
 
 public class barcode extends AppCompatActivity {
 
@@ -25,11 +26,9 @@ public class barcode extends AppCompatActivity {
     private CameraSource cameraSource;
     private static final int REQUEST_CAMERA_PERMISSION = 201;
     private TextView barcodeText;
+    private TextView kohlenhydrateText;
     private String barcodeData;
-    private String[][] testarray = {{"9006900014858","7311250079993"},
-                                    {"Der Grüne","Zyn Deep Freeze"}};
-    private String test1 = "DerGrüneKracktusescalationesgetränkerus";
-    private String test2 = "LindtSchokoBrownieTraumRiegelSnackeru";
+
 
 
 
@@ -40,6 +39,7 @@ public class barcode extends AppCompatActivity {
         setContentView(R.layout.activity_barcode);
         surfaceView = findViewById(R.id.surface_view);
         barcodeText = findViewById(R.id.barcode_text);
+        kohlenhydrateText = findViewById(R.id.kohlenhydrate_text);
         initialiseDetectorsAndSources();
     }
 
@@ -103,19 +103,32 @@ public class barcode extends AppCompatActivity {
                         @Override
                         public void run() {
 
+                            String testarray [] [] = new String [][]
+                                    {{"9006900014858","Der Grüne", "NULL"},
+                                    {"7311250079993","Zyn Deep Freeze", "NULL"},
+                                    {"4031300252932","Velo Snus", "NULL"},
+                                    {"7612100017043","Flasche", "NULL"},
+                                    {"5060166692285","Monster Energy", "12"},
+                                    {"8000500310427", "Nutella biscuits", "63,3"},
+                                    {"5449000236623", "Fuze Tea Peach", "4,5"},
+                                            {"42104643", "Cappy Ice Fruits", "6,7"}};
+
                             if (barcodes.valueAt(0).email != null) {
                                 barcodeText.removeCallbacks(null);
                                 barcodeData = barcodes.valueAt(0).email.address;
                                 for(int i = 0; i < testarray.length; i++) {
 
-                                        if(barcodeData.equals(testarray[0][0])){
-                                            barcodeText.setText(testarray[0][1]);
-                                        }
-                                        else{
+                                        if (barcodeData.equals(testarray[i][0])) {
+                                            barcodeText.setText("Produkt: " + testarray[i][1]);
+                                            kohlenhydrateText.setText("Kohlenhydrate in g/100g: " + testarray[i][2]);
+                                            break;
+                                        } else {
                                             barcodeText.setText(barcodeData);
-                                        }
-                                }
+                                            kohlenhydrateText.setText("Produkt unbekannt");
 
+                                        }
+
+                                }
                             }
                             else {
 
@@ -123,16 +136,21 @@ public class barcode extends AppCompatActivity {
 
                                     for(int i = 0; i < testarray.length; i++) {
 
-                                    if(barcodeData.equals(testarray[0][0])){
-                                        barcodeText.setText(testarray[0][1]);
-                                    }
-                                    else{
-                                        barcodeText.setText(barcodeData);
-                                    }
-                                }
+                                            if (barcodeData.equals(testarray[i][0])) {
+                                                barcodeText.setText("Produkt: " + testarray[i][1]);
+                                                kohlenhydrateText.setText("Kohlenhydrate in g/100g: " + testarray[i][2]);
+                                                break;
+                                            } else {
+                                                barcodeText.setText(barcodeData);
+                                                kohlenhydrateText.setText("Produkt unbekannt");
+                                            }
 
+                                        }
+                                    }
                             }
-                        }
+
+
+
                     });
 
                 }

@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".root_preferences">
 
-<PreferenceScreen
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <SwitchPreferenceCompat
-        app:key="notifications"
-        app:title="Enable message notifications"/>
+        <EditTextPreference
+            android:title="@string/preference_testlist_title"
+            android:key="@string/preference_testlist_key"
+            android:defaultValue="@string/preference_testlist_default"
+            android:inputType="textMultiLine" />
 
-    <Preference
-        app:key="feedback"
-        app:title="Send feedback"
-        app:summary="Report technical issues or suggest new features"/>
-
-</PreferenceScreen>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </PreferenceScreen>

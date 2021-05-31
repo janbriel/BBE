@@ -1,94 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".input">
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText">
 
-
-    <LinearLayout
+    <TextView
+        android:id="@+id/textview"
         android:layout_width="wrap_content"
-        android:orientation="vertical"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="122dp"
-        >
+        android:layout_marginTop="20dp"
+        android:text="Manueller Input"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+    <!--EditText to take the data from the user
+        and save the data in SharedPreferences-->
 
-        <EditText
-            android:id="@+id/Test"
-            android:layout_width="411dp"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test"
-            android:inputType="number" />
+    <TextView
+        android:id="@+id/textview2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:text="Blutzuckerwert:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/Test2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test2"
-            android:inputType="number" />
+    <EditText
+        android:id="@+id/edit1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textview"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Bitte geben sie ihren Blutzuckerwert ein: "
+        android:padding="5dp" />
 
-        <TextView
-            android:id="@+id/test_result"
-            android:layout_width="match_parent"
-            android:layout_height="39dp"
-            android:text="test_result" />
+    <TextView
+        android:id="@+id/textview3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="Berechneter HbA1c-Wert:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextNumber4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test4"
-            android:inputType="number" />
+    <EditText
+        android:id="@+id/edit2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Berechneter HbA1c-Wert: "
+        android:padding="5dp" />
 
-        <EditText
-            android:id="@+id/editTextNumber5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test5"
-            android:inputType="number" />
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:text="Broteinheiten-Faktor:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextNumber6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test6"
-            android:inputType="number" />
+    <EditText
+        android:id="@+id/edit3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="142dp"
+        android:layout_marginEnd="16dp"
+        android:hint="BE-Faktor: "
+        android:padding="5dp" />
 
-        <EditText
-            android:id="@+id/editTextNumber7"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test7"
-            android:inputType="number" />
+    <TextView
+        android:id="@+id/textview5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="330dp"
+        android:text="Kalorien/100g:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
 
-        <EditText
-            android:id="@+id/editTextNumber8"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Test8"
-            android:inputType="number" />
+    <EditText
+        android:id="@+id/edit4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="234dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Kalorien/100g: "
+        android:padding="5dp" />
 
-        <Button
-            android:id="@+id/submit_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Submit" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/textview6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="410dp"
+        android:text="Gegessene Menge in g:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="318dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Gegessene Menge in g: "
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textview7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:text="Berechnete Broteinheiten:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="403dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Berechnete Broteinheiten: "
+        android:padding="5dp" />
+
+    <TextView
+        android:id="@+id/textview8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="580dp"
+        android:text="Berechnete Insulineinheiten:"
+        android:textColor="@android:color/black"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/edit7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit1"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="487dp"
+        android:layout_marginEnd="16dp"
+        android:hint="Berechnete Insulineinheiten: "
+        android:padding="5dp" />
 
 </RelativeLayout>

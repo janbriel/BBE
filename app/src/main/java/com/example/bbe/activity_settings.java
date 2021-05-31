@@ -1,50 +1,37 @@
-/*package com.example.bbe;
+package com.example.bbe;
 
 import android.os.Bundle;
 
+import android.content.SharedPreferences;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.Preference;
+import android.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
+import android.preference.PreferenceActivity;
+import android.widget.Toast;
 
-public class activity_settings extends AppCompatActivity implements
-        PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+public class activity_settings extends PreferenceActivity
+        implements Preference.OnPreferenceChangeListener {
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        addPreferencesFromResource(R.xml.root_preferences);
+        Preference testlistPref = findPreference(getString(R.string.preference_testlist_key));
+        testlistPref.setOnPreferenceChangeListener(this);
 
-        @Override
-        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-            Context context = getPreferenceManager().getContext();
-            PreferenceScreen screen = getPreferenceManager().createPreferenceScreen(context);
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        String gespeicherteTestlist = sharedPrefs.getString(testlistPref.getKey(), "");
+        onPreferenceChange(testlistPref, gespeicherteTestlist);
+    }
 
-            SwitchPreferenceCompat notificationPreference = new SwitchPreferenceCompat(context);
-            notificationPreference.setKey("notifications");
-            notificationPreference.setTitle("Enable message notifications");
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object value) {
 
-            PreferenceCategory notificationCategory = new PreferenceCategory(context);
-            notificationCategory.setKey("notifications_category");
-            notificationCategory.setTitle("Notifications");
-            screen.addPreference(notificationCategory);
-            notificationCategory.addPreference(notificationPreference);
+            preference.setSummary(value.toString());
 
-            Preference feedbackPreference = new Preference(context);
-            feedbackPreference.setKey("feedback");
-            feedbackPreference.setTitle("Send feedback");
-            feedbackPreference.setSummary("Report technical issues or suggest new features");
-
-            PreferenceCategory helpCategory = new PreferenceCategory(context);
-            helpCategory.setKey("help");
-            helpCategory.setTitle("Help");
-            screen.addPreference(helpCategory);
-            helpCategory.addPreference(feedbackPreference);
-
-            setPreferenceScreen(screen);
-        }
-
-  //return false;  @Override
-   // public boolean onPreferenceStartFragment(PreferenceFragmentCompat caller, Preference pref) {
-
-    //}
+            return true;
+    }
 }
-}*/
