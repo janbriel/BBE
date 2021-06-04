@@ -20,9 +20,9 @@
     <string name="title_activity_settings">activity_settings</string>
 
     <!-- Preference Titles -->
-    <string name="preference_testlist_title">Liste der BÄNGER</string>
-    <string name="preference_testlist_key">Ballermann</string>
-    <string name="preference_testlist_default">12Polizei,34Feuerwehr,56AlteHex</string>
+    <string name="preference_testlist_title">Testliste</string>
+    <string name="preference_testlist_key">Testliste</string>
+    <string name="preference_testlist_default">Testliste inhalt 123 abc</string>
     <string name="preference_blutzucker_title">Blutzuckerwert</string>
     <string name="preference_testcalc_key">Testrechnung 1</string>
     <string name="preference_testcalc_default">5</string>
