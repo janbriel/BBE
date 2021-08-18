@@ -1,16 +1,23 @@
 package com.example.bbe;
 
+import androidx.core.content.FileProvider;
 import androidx.preference.PreferenceManager;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.preference.PreferenceActivity;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.Set;
 
 public class input extends AppCompatActivity {
@@ -29,6 +36,47 @@ public class input extends AppCompatActivity {
             menge = findViewById(R.id.edit5);
             broteinheiten = findViewById(R.id.edit6);
             insulin = findViewById(R.id.edit7);
+
+            Button export;
+            export = (Button) findViewById(R.id.button2);
+            export.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+
+                    StringBuilder data = new StringBuilder();
+                    SharedPreferences th = getSharedPreferences("MySharedPref", MODE_PRIVATE);
+                    int langzeit = th.getInt("langzeit", 0);
+                    data.append("Langzeit");
+                    data.append("\n" + langzeit);
+
+        /* StringBuilder data = new StringBuilder();
+        data.append("Time,Distance");
+        for(int i = 0; i<5; i++){
+            data.append("\n"+String.valueOf(i)+","+String.valueOf(ii));*/
+
+
+                    try {
+                        //saving the file into device
+                        FileOutputStream out = openFileOutput("data.csv", Context.MODE_PRIVATE);
+                        out.write((data.toString()).getBytes());
+                        out.close();
+
+                        //exporting
+                        Context context = getApplicationContext();
+                        File filelocation = new File(getFilesDir(), "data.csv");
+                        Uri path = FileProvider.getUriForFile(context, "com.example.bbe.fileprovider", filelocation);
+                        Intent fileIntent = new Intent(Intent.ACTION_SEND);
+                        fileIntent.setType("text/csv");
+                        fileIntent.putExtra(Intent.EXTRA_SUBJECT, "Data");
+                        fileIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        fileIntent.putExtra(Intent.EXTRA_STREAM, path);
+                        startActivity(Intent.createChooser(fileIntent, "Send mail"));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            });
         }
 
         // Fetch the stored data in onResume()
@@ -107,6 +155,7 @@ public class input extends AppCompatActivity {
             myEdit.putFloat("insulin", Float.parseFloat(insulin.getText().toString()));
             myEdit.apply();
         }
+
     }
 
 

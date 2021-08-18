@@ -6,85 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:background="@drawable/android_background">>
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <ImageView
+            android:layout_width="230dp"
+            android:layout_height="98dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="-80dp"
+            android:src='@drawable/logo_small' />
+
+        <Button
+            android:id="@+id/barcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:drawableStart="@drawable/barcode_icon"
+            android:drawablePadding="5dp"
+            android:layout_marginTop="80dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Barcodescanner"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+
+
+        <Button
+            android:id="@+id/input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:drawableStart="@drawable/input_icon"
+            android:drawablePadding="5dp"
+            android:layout_marginTop="80dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Manuelle Eingabe"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/dataprint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/buttonshape"
+            android:drawableStart="@drawable/cloud_icon"
+            android:drawablePadding="5dp"
+            android:layout_marginTop="80dp"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp"
+            android:text="Cloudmanagement"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+
 
     <include
         android:id="@+id/include"
         layout="@layout/content_main" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="match_parent"
-        android:layout_height="260dp"
-        android:layout_marginTop="70dp" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottombar"
-        android:layout_width="match_parent"
-        android:layout_height="113dp"
-        android:background="?attr/colorPrimary"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="bottom"
-        app:popupTheme="@style/AppTheme.PopupOverlay">
-
-        <ImageButton
-            android:id="@+id/barcode"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="140dp"
-            android:background="@null"
-            app:srcCompat="@drawable/barcode_icon"
-             />
-
-        <ImageButton
-            android:id="@+id/dataprint"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:background="@null"
-            android:contentDescription="@string/cloudmanagement"
-            app:srcCompat="@drawable/cloud_icon" />
-
-        <ImageButton
-            android:id="@+id/input"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="300dp"
-            android:background="@null"
-            app:srcCompat="@drawable/input_icon"
-             />
-
-
-
-
-
-    </com.google.android.material.bottomnavigation.BottomNavigationView>
-
-
-    />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:layout_anchor="@+id/include"
-        app:layout_anchorGravity="top"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

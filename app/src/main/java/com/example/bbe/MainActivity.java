@@ -1,3 +1,5 @@
+
+
 package com.example.bbe;
 
 import android.content.Intent;
@@ -5,6 +7,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -23,9 +26,9 @@ import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
 
-    ImageButton cloud;
-    ImageButton barcode;
-    ImageButton input;
+    Button cloud;
+    Button barcode;
+    Button input;
 
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -34,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+
 
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
@@ -45,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+
         NavigationUI.setupWithNavController(navigationView, navController);
 
 
@@ -57,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
             public boolean onNavigationItemSelected(MenuItem nav_host_fragment) {
 
-                //Check to see which item was being clicked and perform appropriate action
+
 
                 switch (nav_host_fragment.getItemId()) {
 
@@ -65,31 +68,31 @@ public class MainActivity extends AppCompatActivity {
 
                         /*case R.id.nav_home: Intent intent = new Intent(MainActivity.this, home.class);
                         startActivity(intent);*/
-                        case R.id.nav_einstellungen: Intent intent2 = new Intent(MainActivity.this, activity_settings.class);
-                                                    startActivity(intent2);
-                                                    break;
-                        case R.id.nav_profil: Intent intent3 = new Intent(MainActivity.this, profil.class);
-                                                    startActivity(intent3);
-                                                    break;
-                        case R.id.nav_ausweis: Intent intent4 = new Intent(MainActivity.this, ausweis.class);
+                    case R.id.nav_einstellungen: Intent intent2 = new Intent(MainActivity.this, activity_settings.class);
+                        startActivity(intent2);
+                        break;
+                    case R.id.nav_profil: Intent intent3 = new Intent(MainActivity.this, profil.class);
+                        startActivity(intent3);
+                        break;
+                    case R.id.nav_ausweis: Intent intent4 = new Intent(MainActivity.this, ausweis.class);
                         startActivity(intent4);
                         break;
-                        case R.id.nav_benutzerhandbuch: Intent intent5 = new Intent(MainActivity.this, benutzerhandbuch.class);
+                    case R.id.nav_benutzerhandbuch: Intent intent5 = new Intent(MainActivity.this, benutzerhandbuch.class);
                         startActivity(intent5);
                         break;
-                        case R.id.nav_feedback: Intent intent6 = new Intent(MainActivity.this, feedback.class);
+                    case R.id.nav_feedback: Intent intent6 = new Intent(MainActivity.this, feedback.class);
                         startActivity(intent6);
                         break;
-                        case R.id.nav_impressum: Intent intent7 = new Intent(MainActivity.this, impressum.class);
+                    case R.id.nav_impressum: Intent intent7 = new Intent(MainActivity.this, impressum.class);
                         startActivity(intent7);
 
 
-                    drawer.closeDrawers();
+                        drawer.closeDrawers();
 
-                    return true;
+                        return true;
                 } return true;} });
 
-        cloud= (ImageButton) findViewById(R.id.dataprint);
+        cloud= (Button) findViewById(R.id.dataprint);
         cloud.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -97,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        barcode= (ImageButton) findViewById(R.id.barcode);
+        barcode= (Button) findViewById(R.id.barcode);
         barcode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        input= (ImageButton) findViewById(R.id.input);
+        input= (Button) findViewById(R.id.input);
         input.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -138,5 +141,3 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 }
-
-
